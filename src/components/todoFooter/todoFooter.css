@@ -1,0 +1,52 @@
+.footer {
+	height: 20px;
+	position: relative;
+	padding: 10px 15px;
+	color: #777;
+}
+
+.footer:before {
+	content: "";
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #f6f6f6,
+		0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #f6f6f6,
+		0 17px 2px -6px rgba(0, 0, 0, 0.2);
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	height: 50px;
+	overflow: hidden;
+}
+
+.footer strong {
+	font-weight: 300;
+}
+
+.filter {
+	position: absolute;
+	top: 9px;
+	left: 159px;
+}
+
+.filter li {
+	float: left;
+	padding-right: 20px;
+}
+
+.filter li a {
+	padding: 3px 7px;
+	border-radius: 3px;
+	border: 1px solid transparent;
+}
+
+.filter li a:hover {
+	border-color: rgba(175, 47, 47, 0.1);
+}
+
+.filter li a.selected {
+	border-color: rgba(175, 47, 47, 0.2);
+}
+
+.clear-completed:hover {
+	border: 1px solid transparent;
+}

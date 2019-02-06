@@ -1,0 +1,75 @@
+.item-list {
+	position: relative;
+}
+.item-list:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+/*  复选框样式图片 */
+.toggle {
+	text-align: center;
+	width: 40px;
+	height: auto;
+	position: absolute;
+	top: 11px;
+	bottom: 0;
+	margin: auto 0;
+	border: none;
+	/*让元素隐藏*/
+	appearance: none;
+}
+.toggle:after {
+	content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#ededed" stroke-width="3"/></svg>');
+}
+.toggle:checked:after {
+	content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#bddad5" stroke-width="3"/><path fill="#5dc2af" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>');
+}
+.toggle + label {
+	display: block;
+	padding: 16px 16px 16px 60px;
+	line-height: 1.2;
+	transition: color 0.4s;
+}
+.toggle:checked + label {
+	color: #d9d9d9;
+	text-decoration: line-through;
+}
+
+/*每项删除按钮*/
+.destory {
+	display: none;
+	font-size: 30px;
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	right: 15px;
+}
+.item-list:hover .destory {
+	display: block;
+	color: #cc9a9a;
+}
+.item-list:hover .destory:hover {
+	color: #af5b5e;
+}
+.item-list:hover .destory:after {
+	content: "×";
+}
+
+/*可编辑的输入框*/
+.edit-input{
+	visibility: hidden;
+	position: absolute;
+    top: 0;
+    right: 0;
+    height: 55px;
+    width: 500px;
+    line-height: 55px;
+    transition: color 0.4s;
+}
+
+.editShow .edit-input{
+	visibility: visible;
+}
+

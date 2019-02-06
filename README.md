@@ -42,3 +42,19 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## 目录结构
+
+src/api.js：调用后台api，若方法过多可以改为src/api文件夹，内部多个js
+
+src/components：展示层组件，基本只用来定义各个组件属性
+
+src/containers：容器组件，含状态并调用api
+
+src/images：图片
+
+src/index.js：初始化app并调用ReactDOM.render()
+
+src/utils：错误处理、格式化等，类似（2）中描述
+
+redux：actions，reducers
