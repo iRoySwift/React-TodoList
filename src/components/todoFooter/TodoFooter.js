@@ -1,20 +1,21 @@
 //因为我们用到了jsx，所以需要引入react
 import React from "react";
 import PT from 'prop-types';
+import { Link } from "react-router-dom"
 
 import "./todoFooter.css";
 
 let propTypes = {
 	clearCompleted: PT.func, 
 	showClearButton: PT.bool, 
-	view: PT.oneOf(['all','active','completed']), 
-	changeView: PT.func, 
 	leftItem: PT.number
+	// view: PT.oneOf(['all','active','completed']), 
+	// changeView: PT.func, 
 }
 
 //不需要通过状态传值，可以用函数式组件
 export default function Footer(props) {
-	let { clearCompleted, showClearButton, view, changeView, leftItem } = props;
+	let { clearCompleted, showClearButton, pathname, leftItem } = props;
 	return (
 		<footer className="footer">
 			<span>
@@ -23,22 +24,28 @@ export default function Footer(props) {
 			</span>
 			<ul className="filter">
 				<li>
-					<a 
-						className={view === "all" ? "selected" : ""}
+					<Link to="/all"
+						className={pathname === "/all" ? "selected" : ""}
+						>All</Link>
+					{/* <a 
 						onClick={()=>changeView("all")}
-						>All</a>
+						>All</a> */}
 				</li>
 				<li>
-					<a
-						className={view === "active" ? "selected" : ""}
+					<Link to="/active"
+						className={pathname === "/active" ? "selected" : ""}
+						>Active</Link>
+					{/* <a
 						onClick={()=>changeView("active")}
-						>Active</a>
+						>Active</a> */}
 				</li>
 				<li>
-					<a
-						className={view === "completed" ? "selected" : ""}
+					<Link to="completed"
+						className={pathname === "/completed" ? "selected" : ""}
+						></Link>
+					{/* <a
 						onClick={()=>changeView("completed")}
-						>Completed</a>
+						>Completed</a> */}
 				</li>
 				{
 					showClearButton && (

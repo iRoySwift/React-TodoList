@@ -1,4 +1,5 @@
 import React, {Fragment, Component, createRef} from "react";
+
 import Todo from "./../../components/todo/Todo.js";
 import TodoFooter from "./../../components/todoFooter/TodoFooter.js";
 
@@ -151,15 +152,20 @@ class TodoList extends Component {
 	/**
 	 * 修改视图显示
 	 */
-	changeView=(view)=>{
-		this.setState({
-			view: view
-		});
-	}
+	// changeView=(view)=>{
+	// 	this.setState({
+	// 		view: view
+	// 	});
+	// }
 
 	render() {
 		//取出保存在state中的输入框值
 		let { todoList, view } = this.state;
+
+		// 取出路由
+		let { match, location: {pathname} } = this.props;
+		// console.log(match)
+		// console.log(pathname)
 
 		//判断todoList中是否全勾选状态
 		let activeTodo = todoList.find(elt => elt.hasComplete === false);
@@ -172,10 +178,10 @@ class TodoList extends Component {
 		// 过滤需要展示的数据
 		let showData = todoList.filter(elt=>{
 			if (elt.hasComplete === false) leftItem++;
-			switch (view) {
-				case 'active':
+			switch (pathname) {
+				case '/active':
 				return !elt.hasComplete;
-				case 'completed':
+				case '/completed':
 				return elt.hasComplete;
 				default:
 				return true;
@@ -237,8 +243,8 @@ class TodoList extends Component {
 							{...{
 								clearCompleted: this.clearCompleted,
 								showClearButton: completeTodo && todoList.length > 0,
-								view,
-								changeView: this.changeView,
+								pathname,
+								// changeView: this.changeView,
 								leftItem
 							}}/>
 						</Fragment>

@@ -37,6 +37,8 @@
 	padding: 3px 7px;
 	border-radius: 3px;
 	border: 1px solid transparent;
+	text-decoration: none;
+	color: #777;
 }
 
 .filter li a:hover {
