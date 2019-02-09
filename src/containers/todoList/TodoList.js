@@ -119,7 +119,7 @@ class TodoList extends Component {
 	commitChange = (id, content) => {
 		let { todoList } = this.state;
 		todoList = todoList.map((elt, i) => {
-			if (elt.id == id) {
+			if (elt.id === id) {
 				elt.content = content;
 			}
 			return elt;

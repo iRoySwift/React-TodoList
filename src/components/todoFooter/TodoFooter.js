@@ -1,10 +1,19 @@
 //因为我们用到了jsx，所以需要引入react
 import React from "react";
+import PT from 'prop-types';
 
 import "./todoFooter.css";
 
+let propTypes = {
+	clearCompleted: PT.func, 
+	showClearButton: PT.bool, 
+	view: PT.oneOf(['all','active','completed']), 
+	changeView: PT.func, 
+	leftItem: PT.number
+}
+
 //不需要通过状态传值，可以用函数式组件
-export default function (props) {
+export default function Footer(props) {
 	let { clearCompleted, showClearButton, view, changeView, leftItem } = props;
 	return (
 		<footer className="footer">
@@ -46,3 +55,5 @@ export default function (props) {
 		</footer>
 	);
 }
+
+Footer.propTypes = propTypes;
